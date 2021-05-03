@@ -11,9 +11,8 @@ export default class IoC {
 
         if (!this._resolvers[token]) {
             throw new Error(
-                'Not Found Error',
-                 'Resolver for token ' + token + 'doesn\'t exist'
-                 );
+                'Resolver for token ' + token + ' doesn\'t exist'
+            );
         }
 
         if (this._resolvedInstances[token]) {
@@ -24,7 +23,7 @@ export default class IoC {
 
         const handlers = this._resolvingHandlers[token] || [];
 
-        for(let handler in handlers) {
+        for(let handler of handlers) {
             instance = handler({instance, ioc: this});
         }
 
