@@ -1,6 +1,6 @@
 import appConfig from "../../configs/app";
-import IoC from "../../ioc";
-import { ServiceProvider } from "../../service-provider";
+import IoC from "../framework/ioc";
+import { ServiceProvider } from "../framework/service-provider";
 import { APP_CONFIG_TOKEN, APP_TITLE_TOKEN, ROUTERS_TOKEN } from "./contracts";
 import { ExampleService } from "./example.service";
 
