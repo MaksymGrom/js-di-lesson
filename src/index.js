@@ -5,23 +5,23 @@ import { App } from "./modules/framework/app";
 const app = new App();
 const ioc = app.run();
 
-const appTitle = ioc.use(APP_TITLE_TOKEN);
+// const appTitle = ioc.use(APP_TITLE_TOKEN);
 
-console.log(appTitle);
+// console.log(appTitle);
 
-const config = ioc.use(APP_CONFIG_TOKEN);
+// const config = ioc.use(APP_CONFIG_TOKEN);
 
-console.log(config);
+// console.log(config);
 
-/** @type {ExampleService} */
-const exampleService = ioc.use(ExampleService);
-exampleService.run();
-console.log('exampleService', exampleService);
+// /** @type {ExampleService} */
+// const exampleService = ioc.use(ExampleService);
+// exampleService.run();
+// console.log('exampleService', exampleService);
 
-const routers = ioc.use(ROUTERS_TOKEN);
+// const routers = ioc.use(ROUTERS_TOKEN);
 
-console.log(routers);
+// console.log(routers);
 
-for(let router of routers) {
-    console.log(`path: ${router.path} && title: ${router.title}`)
-}
+// for(let router of routers) {
+//     console.log(`path: ${router.path} && title: ${router.title}`)
+// }

@@ -1,5 +1,6 @@
 import appConfig from '../../configs/app';
 import { ConsoleLogger } from '../console-logger/console-logger';
+import { Router } from '../routing/router';
 import IoC from './ioc';
 import { Logger } from './logger';
 import { ServiceProvider } from './service-provider';
@@ -22,6 +23,10 @@ export class App {
             
             serviceProvider.register(ioc);
         }
+
+        /** @type {Router} */
+        const router = ioc.use(Router);
+        router.init();
 
         /** @type {Logger} */
         const logger = ioc.use(Logger);

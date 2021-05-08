@@ -1,8 +1,11 @@
 import appConfig from "../../configs/app";
 import IoC from "../framework/ioc";
 import { ServiceProvider } from "../framework/service-provider";
+import { RouteCollection } from "../routing/route-collection";
+import { AboutUsRoute } from "./about-us.route";
 import { APP_CONFIG_TOKEN, APP_TITLE_TOKEN, ROUTERS_TOKEN } from "./contracts";
 import { ExampleService } from "./example.service";
+import { HomeRoute } from "./home.route";
 
 class ExampleServiceProvider extends ServiceProvider {
     /**
@@ -70,6 +73,21 @@ class ExampleServiceProvider extends ServiceProvider {
                     title: 'ABOUT US',
                 });
                 return ctx.instance;
+            }
+        );
+
+        ioc.resolving(
+            RouteCollection,
+            ctx => {
+                /** @type {RouteCollection} */
+                const routeCollection = ctx.instance;
+                routeCollection.addRoute(
+                    new HomeRoute()
+                );
+                routeCollection.addRoute(
+                    new AboutUsRoute()
+                );
+                return routeCollection;
             }
         );
     }
